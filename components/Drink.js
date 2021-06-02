@@ -1,16 +1,20 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 
-const Drink = () => {
+const Drink = ({ data }) => {
 	return (
 		<View style={styles.drinkContainer}>
-			<View style={styles.imgContainer}></View>
-			<View style={styles.nameContainer}>
-				<Text style={styles.drinkName}>Martini </Text>
+			<View style={styles.imgContainer}>
+				<Image style={styles.drinkImage} source={{ uri: data.strDrinkThumb }} />
 			</View>
-			<View style={styles.tagsContainer}>
-				<Text style={styles.tags}> #Alchohol</Text>
-				<Text style={styles.tags}> #Ordinary Drink</Text>
+			<View style={styles.textContainer}>
+				<View style={styles.nameContainer}>
+					<Text style={styles.drinkName}>{data.strDrink} </Text>
+				</View>
+				<View style={styles.tagsContainer}>
+					<Text style={styles.tags}> #Alchohol</Text>
+					<Text style={styles.tags}> #Ordinary Drink</Text>
+				</View>
 			</View>
 		</View>
 	);
@@ -25,20 +29,28 @@ const styles = StyleSheet.create({
 	},
 	imgContainer: {
 		width: 110,
-		backgroundColor: "yellow",
+		padding: 1,
+	},
+	drinkImage: {
+		height: "100%",
+		borderRadius: 3,
+	},
+	textContainer: {
+		flexGrow: 1,
 	},
 	nameContainer: {
-		flexGrow: 1,
-		backgroundColor: "cyan",
+		flex: 1,
+		backgroundColor: "#C4C4C4",
 		justifyContent: "center",
-		alignItems: "center",
+		paddingLeft: 10,
 	},
 	tagsContainer: {
-		flexGrow: 1,
 		justifyContent: "space-evenly",
+		flex: 1,
+		paddingLeft: 10,
 	},
 	drinkName: {
-		fontSize: 25,
+		fontSize: 23,
 	},
 	tags: {
 		fontSize: 20,

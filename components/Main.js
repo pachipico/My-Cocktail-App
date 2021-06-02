@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
-import Drink from "./Drink"
+import { View, Text, StyleSheet, ScrollView } from "react-native";
+import Drink from "./Drink";
 
 const LandingPage = ({ drinks }) => {
 	console.log(drinks.getRandomSelection);
@@ -11,7 +11,11 @@ const LandingPage = ({ drinks }) => {
 				<Text>The Cocktails</Text>
 			</View>
 			<View style={styles.body}>
-				<Drink/>
+				<ScrollView bounces='false'>
+					{drinks.getRandomSelection.map((drink, index) => {
+						return <Drink data={drink} key={index} />;
+					})}
+				</ScrollView>
 			</View>
 		</View>
 	);
@@ -27,8 +31,8 @@ const styles = StyleSheet.create({
 		backgroundColor: "#f5e6ca",
 	},
 	body: {
-		flex: 6,
-		backgroundColor: "cyan",
+		flex: 1.3,
+		backgroundColor: "#f5e6ca",
 	},
 });
 
