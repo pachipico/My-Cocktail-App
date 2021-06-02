@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
+import Drink from "./Drink"
 
 const LandingPage = ({ drinks }) => {
-	console.log(drinks.getRandomSelection[0]);
+	console.log(drinks.getRandomSelection);
 
 	return (
 		<View style={styles.container}>
@@ -10,7 +11,7 @@ const LandingPage = ({ drinks }) => {
 				<Text>The Cocktails</Text>
 			</View>
 			<View style={styles.body}>
-				<Text>sfaslkmfsamflka</Text>
+				<Drink/>
 			</View>
 		</View>
 	);
